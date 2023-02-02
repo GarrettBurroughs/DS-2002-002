@@ -119,7 +119,7 @@ HAVING units_in_stock < 5;
 -- 13). Number of Products per Category Priced Less Than $20.00
 
 SELECT category,
-       list_price
-FROM northwind.producs
-GROUP BY category
-HAVING list_price < 5;
+       COUNT(*) AS units_under_20
+FROM northwind.products
+WHERE list_price < 20
+GROUP BY category;
