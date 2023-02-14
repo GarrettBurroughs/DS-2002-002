@@ -1,7 +1,7 @@
-# DROP database `northwind_dw`;
+DROP database `northwind_dw`;
 CREATE DATABASE `Northwind_dw` /*!40100 DEFAULT CHARACTER SET latin1 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE Northwind_DW3;
+USE Northwind_DW;
 
 # DROP TABLE `dim_customers`;
 CREATE TABLE `dim_customers` (
@@ -116,6 +116,7 @@ CREATE TABLE `fact_orders` (
   `employee_key` int DEFAULT NULL,
   `customer_key` int DEFAULT NULL,
   `shipper_key` int DEFAULT NULL,
+  `product_key` int DEFAULT NULL,
   `order_date` datetime DEFAULT NULL,
   `shipped_date` datetime DEFAULT NULL,
   `ship_name` varchar(50) DEFAULT NULL,
