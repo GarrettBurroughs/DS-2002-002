@@ -1,5 +1,5 @@
 # DROP database `northwind_dw`;
-CREATE DATABASE `Northwind_DW3` /*!40100 DEFAULT CHARACTER SET latin1 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE `Northwind_dw` /*!40100 DEFAULT CHARACTER SET latin1 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE Northwind_DW3;
 
@@ -109,4 +109,40 @@ CREATE TABLE `dim_suppliers` (
 -- To keep things simple, don't include purchase order or inventory info
 -- ----------------------------------------------------------------------
 # DROP TABLE `fact_orders`;
-CREATE TABLE `fact_orders`;
+# CREATE TABLE `fact_orders`;
+CREATE TABLE `fact_orders` (
+  `fact_order_key` int NOT NULL AUTO_INCREMENT,
+  `order_key` int DEFAULT NULL,
+  `employee_key` int DEFAULT NULL,
+  `customer_key` int DEFAULT NULL,
+  `shipper_key` int DEFAULT NULL,
+  `order_date` datetime DEFAULT NULL,
+  `shipped_date` datetime DEFAULT NULL,
+  `ship_name` varchar(50) DEFAULT NULL,
+  `ship_address` longtext,
+  `ship_city` varchar(50) DEFAULT NULL,
+  `ship_state_province` varchar(50) DEFAULT NULL,
+  `ship_zip_postal_code` varchar(50) DEFAULT NULL,
+  `ship_country_region` varchar(50) DEFAULT NULL,
+  `shipping_fee` decimal(19,4) DEFAULT '0.0000',
+  `taxes` decimal(19,4) DEFAULT '0.0000',
+  `payment_type` varchar(50) DEFAULT NULL,
+  `paid_date` datetime DEFAULT NULL,
+  `tax_rate` double DEFAULT '0',
+  `quantity` decimal(18,4) NOT NULL DEFAULT '0.0000',
+  `unit_price` decimal(19,4) DEFAULT '0.0000',
+  `discount` double NOT NULL DEFAULT '0',
+  `date_allocated` datetime DEFAULT NULL,
+  `order_status` varchar(50) NOT NULL,
+  `order_details_status` varchar(50) NOT NULL,
+  PRIMARY KEY (`fact_order_key`),
+  KEY `customer_key` (`customer_key`),
+  KEY `employee_key` (`employee_key`),
+  KEY `product_key` (`product_key`),
+  KEY `shipper_key` (`shipper_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb3;
+
+
+
+
+
