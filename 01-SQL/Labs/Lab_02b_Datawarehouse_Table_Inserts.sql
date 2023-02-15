@@ -95,6 +95,20 @@ INSERT INTO `northwind_dw`.`dim_products`
 `discontinued`,
 `minimum_reorder_quantity`,
 `category`)
+SELECT
+    `products`.`id`,
+    `products`.`product_code`,
+    `products`.`product_name`,
+    `products`.`standard_cost`,
+    `products`.`list_price`,
+    `products`.`reorder_level`,
+    `products`.`target_level`,
+    `products`.`quantity_per_unit`,
+    `products`.`discontinued`,
+    `products`.`minimum_reorder_quantity`,
+    `products`.`category`
+FROM `northwind`.`products`;
+
 # TODO: Write a SELECT Statement to Populate the table;
 
 -- ----------------------------------------------
@@ -114,6 +128,15 @@ INSERT INTO `northwind_dw`.`dim_shippers`
 `state_province`,
 `zip_postal_code`,
 `country_region`)
+SELECT `shippers`.`id`,
+    `shippers`.`company`,
+    `shippers`.`address`,
+    `shippers`.`city`,
+    `shippers`.`state_province`,
+    `shippers`.`zip_postal_code`,
+    `shippers`.`country_region`
+FROM `northwind`.`shippers`;
+
 # TODO: Write a SELECT Statement to Populate the table;
 
 -- ----------------------------------------------
